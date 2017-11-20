@@ -1,5 +1,5 @@
 {
-    "name": "dynamo",
+    "name": "dyno-ts",
     "version": "1.0.0",
     "description": "DynamoDB ORM in TypeScript",
     "main": "index.js",
