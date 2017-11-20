@@ -1,11 +1,5 @@
 import { ChildProcess } from "child_process";
 import * as localDynamo from "local-dynamo";
-import Connection from "../src/connection";
-
-Connection.initalize({
-    endpoint: "http://localhost:8000",
-    region: "localhost"
-});
 
 class DynamoLocal {
     private _childProcess: ChildProcess;
