@@ -8,6 +8,8 @@
         "test:coverage": "yarn test -- --coverage",
         "test:watch": "yarn test -- --watch",
         "test:watch:coverage": "yarn test -- --watch --coverage",
+        "test:coveralls":
+            "yarn test:coverage && cat ./coverage/lcov.info | coveralls",
         "lint": "tslint 'app/**/*.ts'"
     },
     "author": "Pavel Vlasov <freakycue@gmail.com>",
@@ -26,6 +28,7 @@
         "@types/uuid": "^3.4.3",
         "awesome-typescript-loader": "^3.3.0",
         "aws-lambda-typescript": "^1.0.1",
+        "coveralls": "^3.0.0",
         "jest": "^21.2.1",
         "local-dynamo": "^0.5.0",
         "ts-jest": "^21.1.4",
@@ -40,7 +43,8 @@
         },
         "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
         "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
-        "setupTestFrameworkScriptFile": "<rootDir>/scripts/test-setup.ts",
+        "setupTestFrameworkScriptFile": "<rootDir>/scripts/test-env-setup.ts",
+        "setupFiles": ["<rootDir>/scripts/test-setup.ts"],
         "coveragePathIgnorePatterns": ["/node_modules/", "/scripts/"],
         "coverageThreshold": {
             "global": {
