@@ -1,0 +1,56 @@
+{
+    "name": "dynamo",
+    "version": "1.0.0",
+    "description": "DynamoDB ORM in typescript",
+    "main": "index.js",
+    "scripts": {
+        "test": "NODE_PATH=$NODE_PATH:./src jest",
+        "test:coverage": "yarn test -- --coverage",
+        "test:watch": "yarn test -- --watch",
+        "test:watch:coverage": "yarn test -- --watch --coverage",
+        "lint": "tslint 'app/**/*.ts'"
+    },
+    "author": "Pavel Vlasov <freakycue@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "aws-xray-sdk-core": "^1.1.6",
+        "lodash": "^4.17.4",
+        "reflect-metadata": "^0.1.10"
+    },
+    "devDependencies": {
+        "@types/jest": "^21.1.5",
+        "@types/local-dynamo": "^0.5.0",
+        "@types/lodash": "^4.14.80",
+        "@types/node": "^8.0.47",
+        "@types/uuid": "^3.4.3",
+        "awesome-typescript-loader": "^3.3.0",
+        "aws-lambda-typescript": "^1.0.1",
+        "aws-sdk": "^2.141.0",
+        "jest": "^21.2.1",
+        "local-dynamo": "^0.5.0",
+        "ts-jest": "^21.1.4",
+        "tslint": "^5.8.0",
+        "tslint-consistent-codestyle": "^1.9.0",
+        "typescript": "^2.5.3"
+    },
+    "jest": {
+        "verbose": false,
+        "transform": {
+            "^.+\\.tsx?$": "<rootDir>/scripts/jest-preprocessor.js"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+        "setupTestFrameworkScriptFile": "<rootDir>/scripts/test-setup.ts",
+        "coveragePathIgnorePatterns": ["/node_modules/", "/scripts/"],
+        "coverageThreshold": {
+            "global": {
+                "branches": 95,
+                "functions": 100,
+                "lines": 100,
+                "statements": 100
+            }
+        },
+        "mapCoverage": true
+    },
+    "pre-commit": ["test", "lint"]
+}
