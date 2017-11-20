@@ -1,11 +1,13 @@
 import * as AWS from "aws-sdk";
 import DynamoLocal from "./dynamodb-local";
 
-// setup local config
-AWS.config.update({
-    accessKeyId: "local",
-    secretAccessKey: "local",
-    region: "localhost"
+beforeEach(() => {
+    // setup local config
+    AWS.config.update({
+        accessKeyId: "local",
+        secretAccessKey: "local",
+        region: "localhost"
+    });
 });
 
 beforeAll(() => {
