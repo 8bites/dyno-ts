@@ -4,11 +4,10 @@
     "description": "DynamoDB ORM in TypeScript",
     "main": "index.js",
     "scripts": {
-        "test": "NODE_PATH=$NODE_PATH:./src jest",
+        "test": "NODE_PATH=$NODE_PATH:./src jest --runInBand",
         "test:coverage": "yarn test -- --coverage",
         "test:watch": "yarn test -- --watch",
         "test:watch:coverage": "yarn test -- --watch --coverage",
-        "test:coveralls": "yarn test:coverage -- --runInBand",
         "lint": "tslint 'app/**/*.ts'"
     },
     "author": "Pavel Vlasov <freakycue@gmail.com>",

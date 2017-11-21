@@ -1,9 +1,9 @@
 import DynamoLocal from "./dynamodb-local";
 
-beforeAll(() => {
-    return DynamoLocal.launch();
+beforeAll(async () => {
+    await DynamoLocal.launch();
 });
 
-afterAll(() => {
-    return DynamoLocal.teardown();
+afterAll(async () => {
+    await DynamoLocal.teardown();
 });
