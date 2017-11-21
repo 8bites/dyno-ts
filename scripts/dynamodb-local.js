@@ -16,6 +16,8 @@ const DynamoLocal = {
             childProcess.stdout.on("data", buffer => {
                 const data = buffer.toString();
 
+                process.stdout.write(buffer.toString());
+
                 if (data.indexOf("Initializing DynamoDB Local") > -1) {
                     resolve(childProcess.pid);
                 }
