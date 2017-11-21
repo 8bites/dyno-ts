@@ -9,7 +9,7 @@
         "test:watch": "yarn test -- --watch",
         "test:watch:coverage": "yarn test -- --watch --coverage",
         "test:coveralls":
-            "yarn test:coverage && cat ./coverage/lcov.info | coveralls",
+            "yarn test:coverage -- --runInBand && cat ./coverage/lcov.info | coveralls",
         "lint": "tslint 'app/**/*.ts'"
     },
     "author": "Pavel Vlasov <freakycue@gmail.com>",
