@@ -6,4 +6,5 @@ const DynamoLocal = require("./dynamodb-local");
 
 DynamoLocal.launch().then(pid => {
     fs.writeFileSync(path.resolve("./.ddb_pid"), pid, "utf8");
+    process.exit();
 });
