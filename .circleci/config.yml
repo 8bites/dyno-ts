@@ -36,7 +36,7 @@ jobs:
 
           - run:
               name: Test
-              command: yarn run test:coverage
+              command: make test_coverage
 
           - run:
               name: Upload coverage report
