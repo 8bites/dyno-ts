@@ -14,8 +14,10 @@ import {
 import Connection from "../../connection";
 import * as Query from "../index";
 
+const TABLE_NAME = `prod-Card-${Math.random()}`;
+
 describe("HashPrimaryKey", () => {
-    @TableDecorator("prod-card3")
+    @TableDecorator(TABLE_NAME)
     class Card extends Table {
         @HashPrimaryKeyDecorator("id")
         public static readonly primaryKey: Query.HashPrimaryKey<Card, number>;

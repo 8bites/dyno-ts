@@ -9,7 +9,9 @@ import * as Query from "../../query";
 
 import { Table } from "../../table";
 
-@TableDecorator("prod-Card1")
+const TABLE_NAME = `prod-Card-${Math.random()}`;
+
+@TableDecorator(TABLE_NAME)
 class Card extends Table {
     @FullPrimaryKeyDecorator("id", "title")
     public static readonly primaryKey: Query.FullPrimaryKey<
@@ -30,7 +32,7 @@ class Card extends Table {
 
 describe("Table Decorator", () => {
     it("should build table metadata", () => {
-        expect(Card.metadata.name).toBe("prod-Card1");
+        expect(Card.metadata.name).toBe(TABLE_NAME);
     });
 
     it("should create primaryKey", () => {
@@ -56,7 +58,7 @@ describe("Table Decorator", () => {
     it("should throw for missing hash key", () => {
         expect(() => {
             // tslint:disable max-classes-per-file
-            @TableDecorator("prod-Card1")
+            @TableDecorator(TABLE_NAME)
             class InvalidCard extends Table {
                 @FullPrimaryKeyDecorator("id", "title")
                 public static readonly primaryKey: Query.FullPrimaryKey<
@@ -76,7 +78,7 @@ describe("Table Decorator", () => {
     it("should throw for missing range key", () => {
         expect(() => {
             // tslint:disable max-classes-per-file
-            @TableDecorator("prod-Card1")
+            @TableDecorator(TABLE_NAME)
             class InvalidCard extends Table {
                 @FullPrimaryKeyDecorator("id", "title")
                 public static readonly primaryKey: Query.FullPrimaryKey<

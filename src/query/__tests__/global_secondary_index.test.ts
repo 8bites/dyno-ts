@@ -5,7 +5,9 @@ import * as Decorator from "../../decorator";
 import { Table } from "../../table";
 import * as Query from "../index";
 
-@Decorator.Table("prod-Card")
+const TABLE_NAME = `prod-Card-${Math.random()}`;
+
+@Decorator.Table(TABLE_NAME)
 class Card extends Table {
     @Decorator.FullPrimaryKey("id", "title")
     public static readonly primaryKey: Query.FullPrimaryKey<

@@ -14,8 +14,10 @@ import {
 import Connection from "../../connection";
 import * as Query from "../index";
 
+const TABLE_NAME = `prod-Card-${Math.random()}`;
+
 describe("FullPrimaryKey", () => {
-    @TableDecorator("prod-Card2")
+    @TableDecorator(TABLE_NAME)
     class Card extends Table {
         @FullPrimaryKeyDecorator("id", "title")
         public static readonly primaryKey: Query.FullPrimaryKey<
