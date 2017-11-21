@@ -6,4 +6,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
     await DynamoLocal.teardown();
+
+    // exit if jest hangs
+    setTimeout(() => process.exit(), 1000);
 });
