@@ -16,7 +16,7 @@ const DynamoLocal = {
             childProcess.stdout.on("data", buffer => {
                 const data = buffer.toString();
 
-                process.stdout.write(buffer.toString());
+                process.stdout.write(data);
 
                 if (data.indexOf("Initializing DynamoDB Local") > -1) {
                     resolve(childProcess.pid);
@@ -24,6 +24,7 @@ const DynamoLocal = {
                 if (data.indexOf("Exception") > -1) {
                     // tslint:disable no-console
                     console.error(data);
+                    reject(new Error(data));
                 }
             });
         });
