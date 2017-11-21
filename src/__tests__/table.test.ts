@@ -25,7 +25,8 @@ describe("Table", () => {
     }
 
     beforeEach(async () => {
-        await Card.createTable();
+        const response = await Card.createTable();
+        console.log(">>> response: ", response);
     });
     afterEach(async () => {
         await Card.dropTable();
