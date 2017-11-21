@@ -4,10 +4,10 @@
     "description": "DynamoDB ORM in TypeScript",
     "main": "index.js",
     "scripts": {
-        "test": "NODE_PATH=$NODE_PATH:./src jest --runInBand",
-        "test:coverage": "yarn test -- --coverage",
-        "test:watch": "yarn test -- --watch",
-        "test:watch:coverage": "yarn test -- --watch --coverage",
+        "test": "make test",
+        "test:coverage": "make test_coverage",
+        "test:watch": "make test_watch",
+        "test:watch:coverage": "make test_watch_coverage",
         "lint": "tslint 'app/**/*.ts'"
     },
     "author": "Pavel Vlasov <freakycue@gmail.com>",
@@ -27,6 +27,8 @@
         "awesome-typescript-loader": "^3.3.0",
         "aws-lambda-typescript": "^1.0.1",
         "jest": "^21.2.1",
+        "jest-environment-jsdom": "^21.2.1",
+        "jest-environment-node": "^21.2.1",
         "local-dynamo": "^0.5.0",
         "ts-jest": "^21.1.4",
         "tslint": "^5.8.0",
@@ -40,7 +42,6 @@
         },
         "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
         "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
-        "setupTestFrameworkScriptFile": "<rootDir>/scripts/test-env-setup.ts",
         "setupFiles": ["<rootDir>/scripts/test-setup.ts"],
         "coveragePathIgnorePatterns": ["/node_modules/", "/scripts/"],
         "coverageThreshold": {

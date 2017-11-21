@@ -1,22 +1,23 @@
-import { ChildProcess } from "child_process";
-import * as localDynamo from "local-dynamo";
+const { ChildProcess } = require("child_process");
+const localDynamo = require("local-dynamo");
 
-class DynamoLocal {
-    private _childProcess: ChildProcess;
+let childProcess = null;
 
-    public launch() {
+const DynamoLocal = {
+    launch() {
         return new Promise(resolve => {
-            this._childProcess = localDynamo.launch({
+            childProcess = localDynamo.launch({
                 port: 8000,
                 sharedDb: true,
-                stdio: "pipe"
+                stdio: "pipe",
+                detached: true
             });
 
-            this._childProcess.stdout.on("data", buffer => {
+            childProcess.stdout.on("data", buffer => {
                 const data = buffer.toString();
 
                 if (data.indexOf("Initializing DynamoDB Local") > -1) {
-                    resolve();
+                    resolve(childProcess.pid);
                 }
                 if (data.indexOf("Exception") > -1) {
                     // tslint:disable no-console
@@ -24,18 +25,18 @@ class DynamoLocal {
                 }
             });
         });
-    }
+    },
 
-    public teardown() {
+    teardown() {
         return new Promise(resolve => {
-            if (this._childProcess) {
-                this._childProcess.on("close", resolve);
-                process.kill(-this._childProcess.pid);
+            if (childProcess) {
+                childProcess.on("close", resolve);
+                process.kill(-childProcess.pid);
             } else {
                 resolve();
             }
         });
     }
-}
+};
 
-export default new DynamoLocal();
+module.exports = DynamoLocal;
