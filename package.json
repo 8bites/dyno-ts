@@ -4,10 +4,11 @@
     "description": "DynamoDB ORM in TypeScript",
     "main": "index.js",
     "scripts": {
-        "test": "make test",
-        "test:coverage": "make test_coverage",
-        "test:watch": "make test_watch",
-        "test:watch:coverage": "make test_watch_coverage",
+        "dynamodb:start": "node ./scripts/dynamo-start.js",
+        "test": "NODE_PATH=$NODE_PATH:./src yarn run jest",
+        "test:coverage": "yarn run test -- --coverage",
+        "test:watch": "yarn run test -- --watch",
+        "test:watch:coverage": "yarn run test -- --watch --coverage",
         "lint": "tslint 'app/**/*.ts'"
     },
     "author": "Pavel Vlasov <freakycue@gmail.com>",

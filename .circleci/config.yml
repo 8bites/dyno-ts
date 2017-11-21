@@ -37,7 +37,7 @@ jobs:
           - run:
               timeout: 90
               name: Test
-              command: make test_coverage
+              command: yarn run dynamodb:start && yarn run test:coverage
 
           - run:
               name: Upload coverage report
