@@ -35,9 +35,14 @@ jobs:
               command: yarn run lint
 
           - run:
+              name: DynamoDB start
+              command: yarn run dynamodb:start
+              background: true
+
+          - run:
               timeout: 90
               name: Test
-              command: yarn run dynamodb:start & yarn run test:coverage
+              command: sleep 5 && yarn run test:coverage
 
           - run:
               name: Upload coverage report
