@@ -41,7 +41,7 @@ jobs:
 
           - run:
               name: Upload coverage report
-              command: yarn run codecov
+              command: sleep 5 && yarn run codecov
 
           - store_artifacts:
               path: coverage
