@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dynamodb:start": "node ./scripts/dynamo-start.js",
-        "test": "NODE_PATH=$NODE_PATH:./src yarn run jest",
+        "test": "NODE_PATH=$NODE_PATH:./src yarn run jest -- ",
         "test:coverage": "yarn run test -- --coverage",
         "test:watch": "yarn run test -- --watch",
         "test:watch:coverage": "yarn run test -- --watch --coverage",
