@@ -8,8 +8,6 @@ jobs:
       working_directory: ~/dyno-ts
       docker:
           - image: circleci/node:6.10.3
-          - image: dwmkerr/dynamodb
-            environment:
 
       steps:
           - checkout
