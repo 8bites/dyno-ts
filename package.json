@@ -4,7 +4,8 @@
     "description": "DynamoDB ORM in TypeScript",
     "main": "index.js",
     "scripts": {
-        "dynamodb:start": "node ./scripts/dynamo-start.js",
+        "dynamodb:start":
+            "node ./node_modules/local-dynamo/bin/launch_local_dynamo.js --port=8000",
         "test": "NODE_PATH=$NODE_PATH:./src yarn run jest -- ",
         "test:coverage": "yarn run test -- --coverage",
         "test:watch": "yarn run test -- --watch",
