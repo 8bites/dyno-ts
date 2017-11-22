@@ -43,20 +43,10 @@
             "^.+\\.tsx?$": "<rootDir>/scripts/jest-preprocessor.js"
         },
         "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js",
-            "jsx",
-            "json"
-        ],
-        "setupFiles": [
-            "<rootDir>/scripts/test-setup.ts"
-        ],
-        "coveragePathIgnorePatterns": [
-            "/node_modules/",
-            "/scripts/"
-        ],
+        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+        "setupFiles": ["<rootDir>/scripts/test-setup.ts"],
+        "coveragePathIgnorePatterns": ["/node_modules/", "/scripts/"],
+        "coverageDirectory": "./coverage/",
         "coverageThreshold": {
             "global": {
                 "branches": 95,
@@ -67,8 +57,5 @@
         },
         "mapCoverage": true
     },
-    "pre-commit": [
-        "test",
-        "lint"
-    ]
+    "pre-commit": ["test", "lint"]
 }
